@@ -1,0 +1,5 @@
+﻿1. Created the console app
+2. Added the Student and Grade classes
+3. added the context class
+4. installed ef core, ef core sql server and ef core tools
+5. in Pacakge Manager Console run "add-migration InitialSchoolDB".
