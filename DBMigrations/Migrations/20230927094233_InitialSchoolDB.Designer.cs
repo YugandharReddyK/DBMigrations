@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DBMigrations.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20230927092013_InitialSchoolDB")]
+    [Migration("20230927094233_InitialSchoolDB")]
     partial class InitialSchoolDB
     {
         /// <inheritdoc />
@@ -23,23 +23,6 @@ namespace DBMigrations.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("DBMigrations.Grade", b =>
-                {
-                    b.Property<int>("GradeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GradeId"));
-
-                    b.Property<string>("GradeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("GradeId");
-
-                    b.ToTable("Grades");
-                });
 
             modelBuilder.Entity("DBMigrations.Student", b =>
                 {
@@ -62,25 +45,7 @@ namespace DBMigrations.Migrations
 
                     b.HasKey("StudentId");
 
-                    b.HasIndex("GradeId");
-
                     b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("DBMigrations.Student", b =>
-                {
-                    b.HasOne("DBMigrations.Grade", "Grade")
-                        .WithMany("Students")
-                        .HasForeignKey("GradeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Grade");
-                });
-
-            modelBuilder.Entity("DBMigrations.Grade", b =>
-                {
-                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,11 +12,10 @@ namespace DBMigrations
     {
         //entities
         public DbSet<Student> Students { get; set; }
-        public DbSet<Grade> Grades { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=SchoolDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=SchoolDB;User Id=sa;Password=HAL@VSCPassword123;TrustServerCertificate=True;");
         }
     }
 }
