@@ -13,5 +13,7 @@ namespace DBMigrations
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int GradeId { get; set; }
+        public decimal Height { get; set; }
+        public float Weight { get; set; }
     }
 }

@@ -5,3 +5,6 @@
 5. in Pacakge Manager Console(PMC) run "add-migration InitialSchoolDB".
 6. run "update-database –verbose" to create the db using PMC
 7. Publish some dummy data.
+8. Add some extra properties to student
+9. run "add-migration "ModifiedStudentEntity"" in PMC
+10. run "update-database" in PMC
